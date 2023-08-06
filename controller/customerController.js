@@ -36,3 +36,11 @@ module.exports.update = (req, res)=>{
     console.log(customers);
     res.status(200).send(customers);
 }
+
+module.exports.delete = (req, res)=>{
+    const name = req.params.name;
+    let foundCustomerIndex = customers.findIndex(c=> c.name==name);
+    customers.splice(foundCustomerIndex, 1);
+    console.log(customers);
+    res.status(200).send(customers);
+}
