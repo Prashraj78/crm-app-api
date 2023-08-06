@@ -33,8 +33,8 @@ const customers= [
       "ceo": "Cabrera Freeman",
       "status": "Rejected",
       "employees": 132915,
-      "turnover": 2924656,
-      "year": 1907
+      "turnover":  2924656,
+      "year": 1907 
     },
     {
       "_id": "63dddee84ef882dfcb18fba0",
