@@ -1,6 +1,6 @@
-
 const customers= [
     {
+<<<<<<< HEAD
       "_id": "63dddee8338e1da7dde9af3d",
       "name": "REMOLD",
       "ceo": "Virgie Dyer",
@@ -4355,45 +4355,42 @@ const customers= [
       "employees": 88628,
       "turnover": 1356627,
       "year": 1931
+=======
+        "name":"Infosys",
+        "website":"www.infosys.com",
+        "ceo":"Uknown",
+        "employees":"200000",
+        "year":"1995",
+        "turnover":"100000000"
+    },
+    {
+        "name":"TCS",
+        "website":"www.tcs.com",
+        "ceo":"Uknown",
+        "employees":"300000",
+        "year":"1995",
+        "turnover":"200000000"
+>>>>>>> 349b4ad53b0b41ea8b0a5c67874e70247d86d6f2
     }
-  ];
+];
 
 module.exports.get = (req, res)=>{
-    const page = req.params.page;
-    const obj = {
-        "records": customers.slice((page-1)*100,100*page),
-        "totalCount":customers.length
-    }
-    res.status(200).send(obj);
-}
-
-module.exports.getByName = (req, res)=>{
-  const name = req.params.name;
-  const result = customers.find(c=> c.name==name);
-  if(!result){
-    return res.status(404).send();
-  }
-  return res.status(200).send(result);
+    res.status(200).send(customers);
 }
 
 module.exports.add = (req, res)=>{
     const customer = req.body;
+    console.log(customer);
     customers.push(customer);
+    console.log(customers);
     res.status(200).send(customers);
 }
 
-
-module.exports.getAll = (req, res)=>{
-  res.status(200).send(customers);
-}
-
-
 module.exports.update = (req, res)=>{
     const customer = req.body;
-    let foundCustomerIndex = customers.findIndex(c=> c._id==customer._id);
-    console.log(foundCustomerIndex);
-    console.log(customer);
+    let foundCustomerIndex = customers.findIndex(c=> c.name==customer.name);
     customers[foundCustomerIndex]=customer;
+    console.log(customers);
     res.status(200).send(customers);
 }
 
@@ -4404,4 +4401,3 @@ module.exports.delete = (req, res)=>{
     console.log(customers);
     res.status(200).send(customers);
 }
-
